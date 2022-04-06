@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Row } from "react-bootstrap";
+import Break from "./Components/Break";
+import Header from "./Components/Header";
+import Layout from "./Components/Layout";
+import Session from "./Components/Session";
+import Timer from "./Components/Timer";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Header />  
+        <Layout>
+          <Row className="pt-5">
+            <Session />
+            <Break />
+          </Row>
+          <Timer />
+      </Layout>
+    </>
   );
 }
 
