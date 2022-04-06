@@ -16,8 +16,9 @@ function App() {
 
 
   return (
-    <>
+    <div className="d-block-flex h-100" style={{backgroundColor: '#E4FDE1'}}>
         <Header />  
+        <div >
         <Layout>
           <Row className="pt-5">
             <Session 
@@ -39,10 +40,13 @@ function App() {
               setSessionDuration={setSessionDuration} 
               minutesToDuration={minutesToDuration} 
               secondsToDuration={secondsToDuration} 
+              breakDuration={breakDuration}
+              setBreakDuration={setBreakDuration}
             />
           </Row>
       </Layout>
-    </>
+      </div>
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { IconContext } from 'react-icons';
 import {BsPlus} from 'react-icons/bs'
 import { FiMinus } from 'react-icons/fi'
@@ -22,8 +22,8 @@ const Session = (props) => {
     return (
     <>
     <IconContext.Provider value={{ color: "White", size:'1.5em'}}>
-    <Col>
-        <div className='d-flex justify-content-start p-2'>
+    <Col className='d-flex justify-content-start'>
+        <div className='p-2'>
             <div className='input-group input-group-lg mb-2'>
                 <span className='input-group-text py-1'>Focus Duration: {secondsToDuration(sessionDuration)}</span>
                 <div className='input-group-append'>
