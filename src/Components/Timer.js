@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {Button, ButtonGroup, Col, Row, ProgressBar } from 'react-bootstrap'
 import { IconContext } from 'react-icons'
 import { FaPlay, FaStop, FaPause } from 'react-icons/fa'
@@ -7,7 +7,7 @@ import useInterval from '../utils/useInterval'
 
 
 const Timer = ({sessionDuration, setSessionDuration, minutesToDuration, secondsToDuration, breakDuration, setBreakDuration}) => {
-    
+    const audioElement = useRef(null);
     const [session, setSession] = useState('');
     const [timer, setTimer] = useState(sessionDuration);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -29,7 +29,7 @@ const Timer = ({sessionDuration, setSessionDuration, minutesToDuration, secondsT
         if(newTime >= 0) {
           return prevTime - 1
         }
-      
+      audioElement.current.play()
       if(session === breakMessage){
         setTimer(breakDuration)
         
@@ -52,10 +52,14 @@ const Timer = ({sessionDuration, setSessionDuration, minutesToDuration, secondsT
       setSessionDuration(1500)
       setTimer(1500)
       setCount(0)
+      audioElement.current.load();
     }
   return (
     <div className='d-flex justify-content-center pt-5'>
       <IconContext.Provider value={{size: '1.5em'}} >
+      <audio id='beep' ref={audioElement}>
+        <source src='https://onlineclock.net/audio/options/default.mp3' type='audio/mpeg' />
+      </audio>
       <Row>
       <Col>
       <h3 className='text-center'>{session}</h3>

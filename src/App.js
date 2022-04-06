@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <div className="d-block-flex h-100" style={{backgroundColor: '#E4FDE1'}}>
+    <div className="d-block-flex h-100 fill-window" style={{backgroundColor: '#E4FDE1'}}>
         <Header />  
         <div >
         <Layout>

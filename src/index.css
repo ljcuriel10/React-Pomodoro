@@ -1,3 +1,7 @@
-html, body, #app, #app>div {
-    height: 100%
-  }
+  .fill-window {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: scroll;
+}
